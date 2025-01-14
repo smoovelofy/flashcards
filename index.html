@@ -11,6 +11,11 @@
             margin: 0;
             padding: 20px;
             background-color: #f4f4f4;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
         }
         #flashcard {
             margin: 20px auto;
@@ -23,6 +28,10 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             overflow: hidden;
+        }
+        body.dark-mode #flashcard {
+            background-color: #333;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
         }
         #flashcard img {
             width: 100%;
@@ -42,6 +51,19 @@
         button:hover {
             background-color: #45a049;
         }
+        .mode-toggle {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .mode-toggle:hover {
+            background-color: #1e88e5;
+        }
     </style>
 </head>
 <body>
@@ -50,6 +72,7 @@
         <img id="flashcardImage" src="https://smoovelofy.github.io/flashcards/1.png" alt="Flashcard">
     </div>
     <button onclick="changeFlashcard()">Trocar Flashcard</button>
+    <button class="mode-toggle" onclick="toggleDarkMode()">Alternar Modo Escuro</button>
 
     <script>
         // Array com as URLs das imagens
@@ -77,7 +100,8 @@
             'https://smoovelofy.github.io/flashcards/21.png',
             'https://smoovelofy.github.io/flashcards/22.png',
             'https://smoovelofy.github.io/flashcards/23.png',
-            'https://smoovelofy.github.io/flashcards/24.png'
+            'https://smoovelofy.github.io/flashcards/24.png',
+            'https://smoovelofy.github.io/flashcards/25.png'
         ];
 
         function changeFlashcard() {
@@ -88,7 +112,11 @@
             // Atualiza a imagem no flashcard
             document.getElementById('flashcardImage').src = randomImage;
         }
+
+        // Função para alternar entre o modo claro e escuro
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
     </script>
 </body>
 </html>
-
